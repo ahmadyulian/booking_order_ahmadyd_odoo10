@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="work_order_report">
-            <t t-name="work_order_report">
+        <template id="report_wo">
+            <t t-name="report_wo">
                 <t t-call="report.html_container">
                     <t t-foreach="docs" t-as="o">
                         <div class="page">

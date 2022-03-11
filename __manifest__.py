@@ -33,7 +33,7 @@
         'views/booking_order_view.xml',
         'views/service_team_view.xml',
         'views/menu.xml',
-        'report/work_order_report.xml',
+        'report/report_wo.xml',
         'report/report.xml',
         'data/data.xml'
     ],

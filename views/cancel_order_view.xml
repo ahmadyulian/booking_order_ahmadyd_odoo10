@@ -5,9 +5,11 @@
         <record model="ir.ui.view" id="cancelled_form">
             <field name="name">cancel.workorder.form</field>
             <field name="model">cancel.workorder</field>
+            
             <field name="arch" type="xml">
                 <form string="Reason for cancellation">
                     <group string="Reason for cancellation">
+                        <!-- Add your fields here -->
                         <field name="note"/>
                     </group>
 
@@ -19,9 +21,10 @@
             </field>
         </record>
 
-        <act_window name="cancelled Work Order" 
-        id="action_cancel"
+        <act_window id="action_cancel"
+        name="cancelled Work Order" 
         res_model="cancel.workorder"
-        view_mode="form" target="new"/>
+        view_mode="form" 
+        target="new"/>
     </data>
 </odoo>

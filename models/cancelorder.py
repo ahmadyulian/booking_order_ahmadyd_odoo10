@@ -1,14 +1,16 @@
 import time
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-from odoo import models, fields, api, exceptions, _
+from odoo import api, fields, models, exceptions, _
 from odoo.osv import osv
 import logging
+
 _logger = logging.getLogger(__name__)
 
 class CancelOrder(models.TransientModel):
     _name = "cancel.workorder"
 
+    #oftxt
     note = fields.Text('Note')
 
     def cancelled(self):

@@ -1,4 +1,4 @@
-from odoo import models, fields, api, exceptions, _
+from odoo import api, fields, models, exceptions, _
 from odoo.osv import osv
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
@@ -20,14 +20,14 @@ class SaleOrder(models.Model):
     #ofdatetime
     bo_start = fields.Datetime(string='Booking Start')
     bo_end = fields.Datetime(string='Booking End')
+    
     #oofcompute
     work_order_count = fields.Integer(string='Work Order', compute='_compute_work_order_count')
-
     def _compute_work_order_count(self):
-        wo_data = self.env['work.order'].sudo().read_group([('booking_order_reference', 'in', self.ids)], ['booking_order_reference'],
+        work_order_data = self.env['work.order'].sudo().read_group([('booking_order_reference', 'in', self.ids)], ['booking_order_reference'],
                                                            ['booking_order_reference'])
         
-        result = dict((data['booking_order_reference'][0], data['booking_order_reference_count']) for data in wo_data)
+        result = dict((data['booking_order_reference'][0], data['booking_order_reference_count']) for data in work_order_data)
         
         for wo in self:
             wo.work_order_count = result.get(wo.id, 0)
@@ -74,13 +74,14 @@ class SaleOrder(models.Model):
                 raise osv.except_osv(_('Warning!'), _('Team is not available during this period, already booked on '
                                                       'SOXX. Please book on another date.'))
             order.action_work_order_create()
+        
         return res
 
     @api.multi
     def action_work_order_create(self, grouped=False, final=False):
-        wo_obj = self.env['work.order']
+        work_order_object = self.env['work.order']
         for order in self:
-            work_order = wo_obj.create({'booking_order_reference': order.id,
+            work_order = work_order_object.create({'booking_order_reference': order.id,
                                         'team': order.team.id,
                                         'team_leader': order.team_leader.id,
                                         'team_member': [(4, order.team_member.ids)],

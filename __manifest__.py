@@ -26,7 +26,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/wizard_cancelled.xml',
+        'views/cancel_order_view.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/work_order_view.xml',

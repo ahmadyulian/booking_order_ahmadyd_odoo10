@@ -6,9 +6,8 @@ from odoo.osv import osv
 import logging
 _logger = logging.getLogger(__name__)
 
-
-class Cancelled(models.TransientModel):
-    _name = "cancelled.wo"
+class CancelOrder(models.TransientModel):
+    _name = "cancel.workorder"
 
     note = fields.Text('Note')
 

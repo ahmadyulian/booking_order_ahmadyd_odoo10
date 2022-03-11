@@ -1,15 +1,8 @@
-from odoo import models, fields, api, exceptions, _
-from odoo.osv import osv
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-import time
-import logging
-
-_logger = logging.getLogger(__name__)
+from odoo import api, fields, models
 
 class ServiceTeam(models.Model):
     _name = 'service.team'
-    _description = 'service time'
+    _description = 'Deskripsi Service Team'
 
     #ofchar
     name = fields.Char(string='Nama Tim', required=True)

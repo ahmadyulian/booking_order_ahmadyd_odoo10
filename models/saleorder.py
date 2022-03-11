@@ -13,10 +13,10 @@ class SaleOrder(models.Model):
     #ofbool
     is_booking_order = fields.Boolean(string='Is Booking Order')
     #ofm20
-    team = fields.Many2one('service.team', string='Team')
-    team_leader = fields.Many2one('res.users', string='Ketua Tim')
+    team = fields.Many2one(comodel_name='service.team', string='Team')
+    team_leader = fields.Many2one(comodel_name='res.users', string='Ketua Tim')
     #ofm2m
-    team_member = fields.Many2many('res.users', string='Anggota Tim')
+    team_member = fields.Many2many(comodel_name='res.users', string='Anggota Tim')
     #ofdatetime
     bo_start = fields.Datetime(string='Booking Start')
     bo_end = fields.Datetime(string='Booking End')

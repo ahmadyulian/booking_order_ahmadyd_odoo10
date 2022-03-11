@@ -8,10 +8,10 @@ class ServiceTeam(models.Model):
     name = fields.Char(string='Nama Tim', required=True)
 
     #ofm2o
-    team_leader = fields.Many2one('res.users', 
+    team_leader = fields.Many2one(comodel_name='res.users', 
     string='Ketua Tim',  
     required=True)
     
     #ofm2m
-    team_member = fields.Many2many('res.users', 
+    team_member = fields.Many2many(comodel_name='res.users', 
     string='Anggota Tim')

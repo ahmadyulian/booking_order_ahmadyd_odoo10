@@ -10,7 +10,7 @@
     """,
 
     'author': "Ahmad Yulian Dinata",
-    'website': "http://www.yourcompany.com",
+    'website': "https://www.linkedin.com/in/ahmaddyd/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -25,9 +25,17 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/wizard_cancelled.xml',
         'views/views.xml',
         'views/templates.xml',
+        'views/work_order_view.xml',
+        'views/booking_order_view.xml',
+        'views/service_team_view.xml',
+        'views/menu.xml',
+        'report/work_order_report.xml',
+        'report/report.xml',
+        'data/data.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
